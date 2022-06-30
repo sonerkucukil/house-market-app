@@ -3,11 +3,12 @@ import { toast } from 'react-toastify'
 import {useState} from 'react'
 import {Link, useNavigate} from 'react-router-dom'
 import{getAuth, createUserWithEmailAndPassword, updateProfile} from 'firebase/auth'
+import OAuth from '../components/OAuth'
+
 import {setDoc, doc, serverTimestamp} from 'firebase/firestore'
 import {db} from '../firebase.config'
 import {ReactComponent as ArrowRightIcon} from '../assets/svg/keyboardArrowRightIcon.svg'
 import visibilityIcon from '../assets/svg/visibilityIcon.svg'
-import { async } from '@firebase/util'
 
 function SignUp() {
    const [showPassword,setShowPassword] = useState(false)
@@ -98,7 +99,7 @@ function SignUp() {
             </div>
         
         </form>
-        {/* Google Auth*/}
+        <OAuth/> 
         <Link to='/sign-in' className='registerLink'>
             Sign In Instead
         </Link>
